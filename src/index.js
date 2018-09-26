@@ -11,7 +11,12 @@ const debugLogger = log4js.getLogger();
 // assignmentLogger.level = 'info';
 debugLogger.level = 'debug';
 
+const userManager = require('./retrieveUsers.js');
+
 const dt = new Date();
 var utcDate = dt.toUTCString();
 debugLogger.info(`Running at ${utcDate}`);
+
+const userList = userManager.getUsers();
+console.log("users are: " + userList);
 
