@@ -5,18 +5,23 @@ log4js.configure({
 	// assignment: { type: 'file', filename: 'assignmentLog.log' },
     },
 	categories: { default: { appenders: ['everything'], level: 'debug' } }
-})
-// const assignmentLogger = log4js.getLogger();
+});
 const debugLogger = log4js.getLogger();
-// assignmentLogger.level = 'info';
 debugLogger.level = 'debug';
 
 const userManager = require('./retrieveUsers.js');
+const Assigner = require('./Assigner.js').Assigner;
 
 const dt = new Date();
 var utcDate = dt.toUTCString();
 debugLogger.info(`Running at ${utcDate}`);
 
 const userList = userManager.getUsers();
-console.log("users are: " + userList);
+const assignments = new Assigner(userList).assign();
+
+console.log("users are: ");
+for (let i=0; i<userList.length; i++) {
+	console.log(userList[i]);
+}
+console.log(assignments);
 

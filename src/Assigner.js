@@ -1,6 +1,4 @@
-const User = require('./User');
-const Assigner = require('./Assigner');
-const Assignment = require('./Assignment');
+const Assignment = require('./structures/Assignment').Assignment;
 const log4js = require('log4js');
 
 class Assigner {
@@ -15,15 +13,20 @@ function assignUsers() {
 	const assignments = [];
 	let toBeAssigned = this.userList.slice(0); // make a copy of array
 	for (let i=0; i<this.userList.length; i++) {
-		const newAssignment = assignUser(userList[i], toBeAssigned);
+		const newAssignment = assignUser(this.userList[i], toBeAssigned);
 		assignments.push(newAssignment);
-		const used = toBeAssigned.indexOf(newAssignment.recipient);
-		toBeAssigned = toBeAssigned.splice(used,1);
+		console.log("before edit: ");
+		console.log(toBeAssigned);
+		toBeAssigned = toBeAssigned.filter(x => x!==newAssignment.recipient);
+		console.log("after edit");
+		console.log(toBeAssigned);
 	}
+	return assignments;
 }
 
 function assignUser(user, toBeAssigned) {
 	let recipient;
+	console.log(toBeAssigned);
 	switch (toBeAssigned.length) {
 		case 1:
 			recipient = toBeAssigned[0];
@@ -37,9 +40,13 @@ function assignUser(user, toBeAssigned) {
 			}
 			break;
 		default:
-			randomSelectAvoiding(toBeAssigned, user);
+			recipient = randomSelectAvoiding(toBeAssigned, user);
 			break;
 	}
+	// console.log("assigning ");
+	// console.log(recipient);
+	// console.log(" to ");
+	// console.log(user);
 	return new Assignment(user, recipient);
 }
 

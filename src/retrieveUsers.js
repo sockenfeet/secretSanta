@@ -1,5 +1,5 @@
 const readlineSync = require('readline-sync');
-const User = require('./User.js').User;
+const User = require('./structures/User.js').User;
 
 function getUsers() {
 	let users = [];
