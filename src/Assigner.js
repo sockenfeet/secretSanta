@@ -31,17 +31,24 @@ function assignUser(user, toBeAssigned) {
 		case 2:
 			const potentialClash = toBeAssigned.indexOf(this.lastUser);
 			if(potentialClash === -1) {
-				recipient = randomSelection(toBeAssigned);
+				randomSelectAvoiding(toBeAssigned, user);
 			} else {
 				recipient = toBeAssigned[(1-potentialClash)]; //1-0=1 and 1-1=0
 			}
 			break;
 		default:
-			recipient = randomSelection(toBeAssigned);
+			randomSelectAvoiding(toBeAssigned, user);
 			break;
 	}
 	return new Assignment(user, recipient);
-	}
+}
+
+function randomSelectAvoiding(list, avoid) {
+	let selection;
+	do {
+		selection = randomSelection(list);
+	} while (selection === avoid);
+	return selection;
 }
 
 function randomSelection(list) {
