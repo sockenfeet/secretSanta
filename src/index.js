@@ -11,6 +11,7 @@ debugLogger.level = 'debug';
 
 const userManager = require('./retrieveUsers.js');
 const Assigner = require('./Assigner.js').Assigner;
+const sendEmail = require('./emails/sendEmail').sendMessage;
 
 const dt = new Date();
 var utcDate = dt.toUTCString();
@@ -24,4 +25,5 @@ for (let i=0; i<userList.length; i++) {
 	console.log(userList[i]);
 }
 console.log(assignments);
+sendEmail("me", "joanna.jobes@hotmail.com", () => console.log("email sent"));
 
