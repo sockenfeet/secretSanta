@@ -15,18 +15,13 @@ function assignUsers() {
 	for (let i=0; i<this.userList.length; i++) {
 		const newAssignment = assignUser(this.userList[i], toBeAssigned);
 		assignments.push(newAssignment);
-		console.log("before edit: ");
-		console.log(toBeAssigned);
 		toBeAssigned = toBeAssigned.filter(x => x!==newAssignment.recipient);
-		console.log("after edit");
-		console.log(toBeAssigned);
 	}
 	return assignments;
 }
 
 function assignUser(user, toBeAssigned) {
 	let recipient;
-	console.log(toBeAssigned);
 	switch (toBeAssigned.length) {
 		case 1:
 			recipient = toBeAssigned[0];
@@ -34,7 +29,7 @@ function assignUser(user, toBeAssigned) {
 		case 2:
 			const potentialClash = toBeAssigned.indexOf(this.lastUser);
 			if(potentialClash === -1) {
-				randomSelectAvoiding(toBeAssigned, user);
+				recipient = randomSelectAvoiding(toBeAssigned, user);
 			} else {
 				recipient = toBeAssigned[(1-potentialClash)]; //1-0=1 and 1-1=0
 			}
@@ -43,10 +38,6 @@ function assignUser(user, toBeAssigned) {
 			recipient = randomSelectAvoiding(toBeAssigned, user);
 			break;
 	}
-	// console.log("assigning ");
-	// console.log(recipient);
-	// console.log(" to ");
-	// console.log(user);
 	return new Assignment(user, recipient);
 }
 
