@@ -11,6 +11,8 @@ debugLogger.level = 'debug';
 
 const userManager = require('./retrieveUsers.js');
 const Assigner = require('./Assigner.js').Assigner;
+const sendEmail = require('./emails/sendEmail').sendMessage;
+const allGood = require('./emails/sendEmail').areWeSet;
 
 const dt = new Date();
 var utcDate = dt.toUTCString();
@@ -24,4 +26,8 @@ for (let i=0; i<userList.length; i++) {
 	console.log(userList[i]);
 }
 console.log(assignments);
+allGood();
+const testSender = {name: "Jobes", email: "joanna.jobes@hotmail.com"};
+const testAssignee = {name: "Testing McTestyface", email: "nonesense@noidea.asdf"};
+sendEmail(testSender, testAssignee);
 

@@ -1,2 +1,5 @@
 node_modules/
 logs/
+src/emails/credentials.json
+src/emails/token.json
+src/emails/authorisation.js
