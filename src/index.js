@@ -1,7 +1,7 @@
 const log4js = require('log4js');
 log4js.configure({
 	appenders: {
-    everything: { type: 'file', filename: 'logs/debugLog.log' },
+    everything: { type: 'file', filename: '../logs/debugLog.log' },
 	// assignment: { type: 'file', filename: 'assignmentLog.log' },
     },
 	categories: { default: { appenders: ['everything'], level: 'debug' } }
@@ -27,7 +27,9 @@ for (let i=0; i<userList.length; i++) {
 }
 console.log(assignments);
 allGood();
-const testSender = {name: "Jobes", email: "joanna.jobes@hotmail.com"};
-const testAssignee = {name: "Testing McTestyface", email: "nonesense@noidea.asdf"};
-sendEmail(testSender, testAssignee);
-
+// const testSender = {name: "Jobes", email: "joanna.jobes@hotmail.com"};
+// const testAssignee = {name: "Testing McTestyface", email: "nonesense@noidea.asdf"};
+// sendEmail(testSender, testAssignee);
+assignments.forEach(assignment => {
+	sendEmail(assignment.sender, assignment.recipient);
+});
