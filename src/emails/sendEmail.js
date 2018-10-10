@@ -1,16 +1,6 @@
 const nodemailer = require('nodemailer');
 const keys = require('./credentials').installed;
 const tokens = require('./token');
-// const redirectUri = keys.redirect_uris[keys.redirect_uris.length - 1];
-
-// const authorisation = new google.google.auth.OAuth2(
-//   keys.client_id,
-//   keys.client_secret,
-//   redirectUri
-// );
-// const gmail = google.google.gmail({
-//   auth: authorisation,
-// });
 
 const transporter = nodemailer.createTransport({
   service: 'joleedoestech gmail',

@@ -2,7 +2,6 @@ const log4js = require('log4js');
 log4js.configure({
 	appenders: {
     everything: { type: 'file', filename: '../logs/debugLog.log' },
-	// assignment: { type: 'file', filename: 'assignmentLog.log' },
     },
 	categories: { default: { appenders: ['everything'], level: 'debug' } }
 });
