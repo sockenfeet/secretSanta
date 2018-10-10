@@ -43,7 +43,7 @@ function sendMessage(sendTo, assigned) {
   const mailOptions = {
      from: "joleedoestech@gmail.com",
      to: sendTo.email,
-     subject: "Dinosaur Secret Santa Oxmas 2018 :D",
+     subject: "Dinosaur Secret Santa Oxmas 2018 🎄😁",
      html:
       `<p>
         Hello ${sendTo.name} :), 
@@ -53,7 +53,7 @@ function sendMessage(sendTo, assigned) {
       </p><p>
         Thank you :)<br>
         The Oxmas Secret Santa Robot Fairy :P
-      </p><br><br><p>
+      </p><br>🎄🎅🎄🎅🎄🎅🎄🎅<br><p>
       Something not right? Blame Jo ;P [seriously, let me know, and I'll try to fix it]
     </p>`,
   }
