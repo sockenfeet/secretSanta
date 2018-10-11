@@ -55,4 +55,4 @@ function randomSelection(list) {
 	return list[randomIndex];
 }
 
-module.exports = { Assigner };
+module.exports = Assigner;
