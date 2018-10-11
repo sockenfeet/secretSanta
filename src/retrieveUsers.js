@@ -17,7 +17,11 @@ function getUsers() {
 function newUser(n) {
 	const userName = readlineSync.question("What is the name of the next User? ");
 	const emailAddress = readlineSync.question(`And what is ${userName}'s email address? `);
-	return new User(userName, emailAddress);
+	if (emailAddress === "") {
+		return new User(userName, "joleedoestech@gmail.com");
+	} else {
+		return new User(userName, emailAddress);
+	}
 }
 
 module.exports = { getUsers };
