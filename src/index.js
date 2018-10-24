@@ -9,7 +9,7 @@ const debugLogger = log4js.getLogger();
 debugLogger.level = 'debug';
 
 const userManager = require('./retrieveUsers.js');
-const Assigner = require('./Assigner.js');
+const Assigner = require('./Assigner.js').Assigner;
 const sendEmail = require('./emails/sendEmail').sendMessage;
 const allGood = require('./emails/sendEmail').areWeSet;
 
