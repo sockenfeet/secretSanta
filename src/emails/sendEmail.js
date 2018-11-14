@@ -2,14 +2,17 @@ const nodemailer = require('nodemailer');
 const keys = require('./credentials').installed;
 const tokens = require('./token');
 
+const fromEmail = "joleedoestech@gmail.com";
+const fromAddressName = 'joleedoestech gmail';
+
 const transporter = nodemailer.createTransport({
-  service: 'joleedoestech gmail',
+  service: fromAddressName,
   host: 'smtp.gmail.com',
   port: 587,
   secure: false, // true for 465, false for other ports
   auth: {
     type: "oauth2",
-    user: "joleedoestech@gmail.com",
+    user: fromEmail,
     clientId: keys.client_id,
     clientSecret: keys.clientSecret,
     refreshToken: tokens.refresh_token,
@@ -31,7 +34,7 @@ function areWeSet() {
 
 function sendMessage(sendTo, assigned) {
   const mailOptions = {
-     from: "joleedoestech@gmail.com",
+     from: fromEmail,
      to: sendTo.email,
      subject: "Dinosaur Secret Santa Oxmas 2018 🎄😁",
      html:
