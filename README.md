@@ -1,8 +1,11 @@
 # secretSanta
 Automatic secret santa assigner
 
-run from root directory:
-```node index.js```
+Before running need to set up authentication for sending the emails. I should make the 'from' email a parameter..
+It's currently a const in 
+
+run from src directory:\n
+```node index.js```\n
 (fixing the 'run' script is an open ticket)
 
 Plan is a few branches with versions implementing different algorithms
