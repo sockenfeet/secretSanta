@@ -1,14 +1,13 @@
 # secretSanta
 Automatic secret santa assigner
 
-Before running need to set up authentication for sending the emails. I should make the 'from' email a parameter..
-It's currently a const in 
+Before running need to set up authentication for sending the emails. The 'from' email is a const in src/emails/sendEmail, I'll get that read from the terminal at some point. For a gmail address you can set up auth using the instructions here: https://developers.google.com/identity/protocols/OAuth2
 
 run from src directory:
 
 ```node index.js```
 
-(fixing the 'run' script is an open ticket)
+(fixing the 'start' script is an open ticket)
 
 Plan is a few branches with versions implementing different algorithms
 Will update which does what as I go
